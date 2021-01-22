@@ -9,10 +9,12 @@ export default function Board() {
   const [ squares, setSquares ] = useState(Array(9).fill(null));
   const [ winner, setWinner ] = useState(null);
   const [ xIsNext, setXIsNext ] = useState(true);
+  const [ status, setStatus ] = useState('Next player: X')
 
-  const status = 'Next player: X';
+  // let status = 'Next player: X';
 
   const handleClick = (i) => {
+    setStatus(xIsNext ? 'Next player: O' : 'Next player: X'); 
     const squareCopy = squares.slice();
     squareCopy[i] = xIsNext ? 'X' : 'O';
     setSquares(squareCopy);
